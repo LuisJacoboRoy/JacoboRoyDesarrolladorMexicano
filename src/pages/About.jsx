@@ -1,128 +1,290 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ProfilePhoto from '../components/ProfilePhoto';
 import '../styles/about.css';
 
 function About() {
-  const skills = {
-    'Desarrollo Web': ['React 19', 'Node.js', 'TypeScript', 'PostgreSQL', 'MongoDB'],
-    'Diseño UI/UX': ['Figma', 'Adobe XD', 'Responsive Design', 'Wireframing'],
-    'Análisis de Datos': ['Python', 'SQL', 'Tableau', 'Excel Avanzado'],
-    'Otros': ['Git', 'Docker', 'AWS', 'GitHub Actions', 'CI/CD']
-  };
+  const [hoveredProject, setHoveredProject] = useState(null);
+
+  const workExperience = [
+    {
+      company: 'Tuxtepec en Línea',
+      role: 'CEO y Creador de contenidos',
+      period: '2020 — Presente',
+      description: 'Fundación y dirección de plataforma digital innovadora. Desarrollo full stack, estrategia digital y gestión empresarial.'
+    },
+    {
+      company: 'IEPC Jalisco',
+      role: 'Programador Informático',
+      period: '2018 — 2020',
+      description: 'Sistemas de información para procesos electorales. Manejo de millones de registros y optimización crítica de datos electorales.'
+    },
+    {
+      company: 'Grupo Tomza',
+      role: 'Analista de Datos Sisco, Monitoreo GPS',
+      period: '2017 — 2019',
+      description: 'Análisis avanzado de datos empresariales. Sistemas de monitoreo GPS y desarrollo de soluciones empresariales en Cd. Juárez.'
+    },
+    {
+      company: 'Colegio Alejandro Magno',
+      role: 'Desarrollo y Diseño Institucional',
+      period: '2016 — 2018',
+      description: 'Desarrollo IT y diseño de sistemas institucionales. Infraestructura digital y presencia en línea.'
+    },
+    {
+      company: 'Pachuca FC',
+      role: 'Desarrollo y Diseño Institucional',
+      period: '2016 — 2018',
+      description: 'Desarrollo IT y diseño de identidad. Rebrand de filial TuzosJrz y sistemas de estadio.'
+    },
+    {
+      company: 'RSP Partido Político',
+      role: 'Registrante INE y Administrador de Campaña Digital',
+      period: '2015 — 2017',
+      description: 'Registro FURC de candidaturas. Administración y estrategia de campañas digitales.'
+    }
+  ];
+
+  const mediaExperience = [
+    {
+      company: 'SEP Chihuahua',
+      role: 'Diseño Institucional',
+      period: '2016 — 2019'
+    },
+    {
+      company: 'CREE Estatal Chihuahua',
+      role: 'Diseñador de Manual de Procedimiento y Proyectos',
+      period: '2015 — 2018'
+    },
+    {
+      company: 'Universidad Veracruzana (JAZZUV)',
+      role: 'Diseñador de Carteles y Avisos',
+      period: '2013 — 2016'
+    },
+    {
+      company: 'Innova Cielec',
+      role: 'Diseñador Industrial',
+      period: '2014 — 2016'
+    },
+    {
+      company: 'Estadio Alejandro Magno',
+      role: 'Desarrollo IT y Diseño',
+      period: '2016 — 2018'
+    },
+    {
+      company: 'Abriendo Brecha Veracruz',
+      role: 'Diseñador Editorial',
+      period: '2012 — 2014'
+    },
+    {
+      company: 'OyeVeracruz',
+      role: 'Diseñador Editorial',
+      period: '2011 — 2012'
+    },
+    {
+      company: 'ElTuxtepecano',
+      role: 'Diseñador Editorial',
+      period: '2010 — 2011'
+    },
+    {
+      company: 'Consentido Publicitario Guadalajara',
+      role: 'Diseñador General',
+      period: '2009 — 2010'
+    },
+    {
+      company: 'DG Gráfico Guadalajara',
+      role: 'Diseñador Gráfico',
+      period: '2009 — 2010'
+    }
+  ];
 
   const studies = [
     {
-      institution: 'Universidad Veracruzana',
-      program: 'Carrera en Informática',
-      period: '2015 — 2019'
-    },
-    {
-      institution: 'IEPC Jalisco',
-      program: 'Programación & Sistemas',
-      period: '2018 — 2020'
-    },
-    {
       institution: 'Cenaltec',
       program: 'Comunicación Bilingüe',
+      location: 'Cd. Juárez',
       period: '2016 — 2018'
+    },
+    {
+      institution: 'STPS',
+      program: 'Diseño Urbano Wayfinding',
+      location: 'Xalapa',
+      period: '2016 — 2017'
+    },
+    {
+      institution: 'SEP / Conaculta / Seculta',
+      program: 'Formación Docente, Pedagógica y Artística',
+      location: 'Oaxaca',
+      period: '2014 — 2016'
+    },
+    {
+      institution: 'Universidad Veracruzana',
+      program: 'Educación Continua y Especialización',
+      location: 'Veracruz',
+      period: '2015 — Presente'
+    },
+    {
+      institution: 'Google Develop Program',
+      program: 'Desarrollo con APIs',
+      location: 'Online',
+      period: '2018 — Presente'
+    },
+    {
+      institution: 'UVEG',
+      program: 'Formación de Nivel Educativo',
+      location: 'Online',
+      period: 'En proceso'
+    }
+  ];
+
+  const skills = {
+    'Desarrollo IT': ['React', 'Node.js', 'JavaScript', 'SQL', 'PostgreSQL', 'MongoDB', 'Full Stack'],
+    'Análisis de Datos': ['Análisis Sisco', 'Monitoreo GPS', 'Python', 'Excel Avanzado', 'Dashboard Design', 'Data Visualization'],
+    'Diseño UI/UX': ['Diseño Editorial', 'Identidad Visual', 'Wayfinding', 'Diseño Institucional', 'Figma', 'Adobe Creative Suite'],
+    'Especialidades': ['Sistemas Electorales', 'Gestión Empresarial', 'Google APIs', 'Git', 'Diseño Gráfico', 'Branding']
+  };
+
+  const projects = [
+    {
+      id: 1,
+      title: 'Sistemas de Procesos Electorales',
+      category: 'Backend / Data Analytics',
+      description: 'Sistemas de información para millones de registros electorales con optimización crítica',
+      skills: ['SQL', 'PostgreSQL', 'Data Analysis', 'Backend']
+    },
+    {
+      id: 2,
+      title: 'Plataforma Digital Tuxtepec en Línea',
+      category: 'Full Stack / CEO',
+      description: 'Plataforma digital innovadora con gestión empresarial y desarrollo full stack',
+      skills: ['React', 'Node.js', 'Full Stack', 'Business Management']
+    },
+    {
+      id: 3,
+      title: 'Monitoreo GPS y Análisis Sisco',
+      category: 'Data Analytics',
+      description: 'Sistemas empresariales de monitoreo GPS y análisis Sisco a gran escala',
+      skills: ['GPS Tracking', 'Data Analysis', 'Systems Design']
     }
   ];
 
   return (
     <div className="about-page">
-      {/* Hero Section */}
-      <section className="about-hero">
-        <div className="about-hero-content">
-          <h1>Acerca de Mí</h1>
-          <p className="intro-text">
-            Soy un profesional apasionado por transformar ideas complejas en soluciones simples y elegantes. 
-            Con experiencia en desarrollo web, análisis de datos y diseño UI/UX, me destaco en crear experiencias 
-            digitales que combinan funcionalidad, estética y rendimiento.
-          </p>
+      {/* Header Section - Magic Portfolio Style */}
+      <section className="about-header">
+        <div className="header-content">
+          <div className="header-profile">
+            <ProfilePhoto />
+          </div>
+          <div className="header-info">
+            <h1>Luis Jacobo Santos Roy</h1>
+            <p className="title-desc">Desarrollador • Diseñador • Especialista en IT & Data Analyst • Senior UI/UX Designer</p>
+            <p className="header-intro">
+              Profesional con trayectoria híbrida de más de una década en diseño institucional, análisis de datos y desarrollo de sistemas. Especialista en soluciones digitales para sector público, político y empresarial.
+            </p>
+            <div className="header-meta">
+              <span className="location">México</span>
+              <span className="separator">•</span>
+              <span className="experience">+10 años experiencia</span>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Personal Bio */}
-      <section className="bio-section">
-        <div className="bio-content">
-          <h2>Mi Historia</h2>
-          <p>
-            Nacido y criado en México, con experiencia en Cd. Juárez, Oaxaca y Veracruz. 
-            He trabajado en diversos sectores incluyendo tecnología, diseño editorial, medios y emprendimiento. 
-            Mi pasión por la tecnología y el diseño me ha permitido desarrollar soluciones innovadoras que impactan 
-            positivamente a usuarios y empresas.
-          </p>
-          <p>
-            Actualmente, me enfoco en crear experiencias digitales de alta calidad utilizando las tecnologías 
-            más modernas, con especial énfasis en React, TypeScript y arquitecturas escalables.
-          </p>
-        </div>
-      </section>
-
-      {/* Work Experience */}
-      <section className="work-experience">
+      {/* Work Experience Section */}
+      <section className="experience-section">
         <h2>Experiencia Profesional</h2>
-        <div className="experience-list">
-          <div className="experience-item">
-            <div className="exp-header">
-              <h3>Tuxtepec en Línea</h3>
-              <span className="period">2020 — Presente</span>
+        <div className="experience-container">
+          <div className="experience-group">
+            <h3 className="group-title">Tecnología y Gestión de Datos</h3>
+            <div className="experience-list">
+              {workExperience.map((exp, idx) => (
+                <div key={idx} className="experience-card">
+                  <div className="exp-header">
+                    <div className="exp-title">
+                      <h4>{exp.company}</h4>
+                      <p className="exp-role">{exp.role}</p>
+                    </div>
+                    <span className="exp-period">{exp.period}</span>
+                  </div>
+                  <p className="exp-description">{exp.description}</p>
+                </div>
+              ))}
             </div>
-            <p className="role">CEO & Creador</p>
-            <p className="description">
-              Fundé y dirijo una plataforma digital que se convirtió en referente regional. 
-              Lideré todo el stack tecnológico, estrategia digital y crecimiento de usuarios.
-            </p>
           </div>
 
-          <div className="experience-item">
-            <div className="exp-header">
-              <h3>IEPC Jalisco</h3>
-              <span className="period">2018 — 2020</span>
+          <div className="experience-group">
+            <h3 className="group-title">Experiencia en Medios, Agencias e Instituciones</h3>
+            <div className="experience-list-compact">
+              {mediaExperience.map((exp, idx) => (
+                <div key={idx} className="experience-item-compact">
+                  <div className="compact-header">
+                    <h5>{exp.company}</h5>
+                    <span className="period">{exp.period}</span>
+                  </div>
+                  <p className="role-small">{exp.role}</p>
+                </div>
+              ))}
             </div>
-            <p className="role">Programador</p>
-            <p className="description">
-              Desarrollé sistemas de información para procesos electorales con manejo de millones de registros 
-              y optimización de performance crítica.
-            </p>
-          </div>
-
-          <div className="experience-item">
-            <div className="exp-header">
-              <h3>Grupo Tomza</h3>
-              <span className="period">2017 — 2018</span>
-            </div>
-            <p className="role">Analista de Redes / GPS</p>
-            <p className="description">
-              Administración de infraestructuras de red y sistemas de localización GPS para soluciones logísticas.
-            </p>
           </div>
         </div>
       </section>
 
-      {/* Education */}
-      <section className="education">
-        <h2>Educación</h2>
-        <div className="studies-list">
-          {studies.map((study, index) => (
-            <div key={index} className="study-item">
-              <h4>{study.institution}</h4>
-              <p className="program">{study.program}</p>
-              <p className="period">{study.period}</p>
+      {/* Featured Projects Section - Astro Zen Style */}
+      <section className="featured-projects">
+        <h2>Proyectos Destacados</h2>
+        <div className="projects-grid">
+          {projects.map((project) => (
+            <div 
+              key={project.id}
+              className="project-card featured"
+              onMouseEnter={() => setHoveredProject(project.id)}
+              onMouseLeave={() => setHoveredProject(null)}
+            >
+              <div className="project-content">
+                <div className="project-header">
+                  <h3>{project.title}</h3>
+                  <p className="project-category">{project.category}</p>
+                </div>
+                <p className="project-description">{project.description}</p>
+                <div className="project-skills">
+                  {project.skills.map((skill, idx) => (
+                    <span key={idx} className="skill-tag">{skill}</span>
+                  ))}
+                </div>
+              </div>
+              <div className={`project-overlay ${hoveredProject === project.id ? 'active' : ''}`} />
             </div>
           ))}
         </div>
       </section>
 
-      {/* Technical Skills */}
+      {/* Education Section */}
+      <section className="education-section">
+        <h2>Formación</h2>
+        <div className="studies-list">
+          {studies.map((study, idx) => (
+            <div key={idx} className="study-item">
+              <div className="study-header">
+                <h4>{study.institution}</h4>
+                <span className="period">{study.period}</span>
+              </div>
+              <p className="study-program">{study.program}</p>
+              {study.location && <p className="study-location">{study.location}</p>}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Technical Skills Section */}
       <section className="skills-section">
-        <h2>Competencias Técnicas</h2>
+        <h2>Habilidades Técnicas</h2>
         <div className="skills-grid">
           {Object.entries(skills).map(([category, skillList]) => (
             <div key={category} className="skill-category">
               <h4>{category}</h4>
-              <div className="skill-tags">
-                {skillList.map((skill, index) => (
-                  <span key={index} className="skill-tag">{skill}</span>
+              <div className="skill-list">
+                {skillList.map((skill, idx) => (
+                  <span key={idx} className="skill-item">{skill}</span>
                 ))}
               </div>
             </div>
@@ -130,32 +292,47 @@ function About() {
         </div>
       </section>
 
-      {/* Location & Timezone */}
-      <section className="location-section">
-        <h2>Ubicación</h2>
-        <div className="location-info">
+      {/* Bio Section */}
+      <section className="bio-section">
+        <h2>Acerca de Mí</h2>
+        <div className="bio-content">
           <p>
-            <strong>Basado en:</strong> Cd. Juárez, Chihuahua, México
+            Especialista en la gestión de identidades digitales y sistemas empresariales. He liderado proyectos desde la creación de contenidos como CEO hasta administración de campañas digitales y desarrollo de sistemas de monitoreo y análisis de datos a gran escala.
           </p>
           <p>
-            <strong>Zona Horaria:</strong> Hora de la Montaña (MDT/MST)
+            Mi trayectoria abarca gobierno y política (INE/IEPC), análisis y datos (sistemas Sisco, monitoreo GPS), y diseño editorial con experiencia en múltiples estados: Veracruz, Oaxaca, Jalisco y Chihuahua.
           </p>
           <p>
-            <strong>Disponibilidad:</strong> Abierto a proyectos remotos y colaboraciones
+            Actualmente enfocado en desarrollo full stack con tecnologías modernas y soluciones escalables para sector público y privado, manteniendo enfoque en performance, seguridad y escalabilidad.
           </p>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="cta-section">
-        <h2>Trabaja Conmigo</h2>
-        <p>
-          ¿Tienes un proyecto interesante? Me encantaría escuchar sobre él. 
-          Contáctame para una conversación sin compromiso.
-        </p>
-        <a href="mailto:jacobo@example.com" className="btn btn-large">
-          Envíame un Email
-        </a>
+      {/* Links Section */}
+      <section className="links-section">
+        <h2>Enlaces de Interés</h2>
+        <div className="links-grid">
+          <a href="https://behance.net/jacoboroy" target="_blank" rel="noopener noreferrer" className="link-item">
+            <span className="link-label">Behance</span>
+            <span className="link-arrow">→</span>
+          </a>
+          <a href="https://github.com/LuisJacoboRoy" target="_blank" rel="noopener noreferrer" className="link-item">
+            <span className="link-label">GitHub Principal</span>
+            <span className="link-arrow">→</span>
+          </a>
+          <a href="https://github.com/JacoboRoy" target="_blank" rel="noopener noreferrer" className="link-item">
+            <span className="link-label">GitHub Personal</span>
+            <span className="link-arrow">→</span>
+          </a>
+          <a href="https://linkedin.com/in/jacoboroy" target="_blank" rel="noopener noreferrer" className="link-item">
+            <span className="link-label">LinkedIn</span>
+            <span className="link-arrow">→</span>
+          </a>
+          <a href="mailto:killerpollo22@msn.com" className="link-item">
+            <span className="link-label">Email</span>
+            <span className="link-arrow">→</span>
+          </a>
+        </div>
       </section>
     </div>
   );

@@ -88,6 +88,13 @@
   display: none;
 }
 
+.nav-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
 /* Mobile Navigation */
 @media (max-width: 768px) {
   .nav-container {

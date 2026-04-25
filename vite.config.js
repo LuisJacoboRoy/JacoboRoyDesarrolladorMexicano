@@ -11,5 +11,5 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: false,
   },
-  base: '/JacoboRoyDesarrolladorMexicano/',
+  base: process.env.NODE_ENV === 'production' ? '/JacoboRoyDesarrolladorMexicano/' : '/',
 });
