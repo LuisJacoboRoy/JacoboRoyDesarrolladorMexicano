@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ProfilePhoto from '../components/ProfilePhoto';
 import '../styles/about.css';
+import '../styles/about-animations.css';
 
 function About() {
   const [hoveredProject, setHoveredProject] = useState(null);
