@@ -1,13 +1,37 @@
-/* Experience Card Styles */
+/* ===============================
+   EXPERIENCE CARD - Magic Portfolio
+   =============================== */
+
 .experience-card {
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 0.75rem;
+  border-radius: 8px;
   padding: 2rem;
   transition: all var(--transition);
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  animation: springEnter 0.5s ease-out backwards;
+}
+
+.experience-card:nth-child(1) { animation-delay: 0.1s; }
+.experience-card:nth-child(2) { animation-delay: 0.2s; }
+.experience-card:nth-child(3) { animation-delay: 0.3s; }
+.experience-card:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes springEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .experience-card::before {
@@ -19,6 +43,7 @@
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
   transition: left 0.5s ease;
+  pointer-events: none;
 }
 
 .experience-card:hover::before {
@@ -27,21 +52,23 @@
 
 .experience-card:hover {
   border-color: var(--accent-color);
-  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
-  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(59, 130, 246, 0.15);
+  transform: translateY(-6px);
 }
 
 .experience-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
+  gap: 1rem;
 }
 
 .company-name {
   font-size: 1.25rem;
   color: var(--text-primary);
   margin: 0;
+  font-weight: 600;
 }
 
 .period {
@@ -49,33 +76,40 @@
   color: var(--text-muted);
   font-weight: 500;
   white-space: nowrap;
-  margin-left: 1rem;
+  padding: 0.4rem 0.8rem;
+  background: var(--bg-secondary);
+  border-radius: 4px;
 }
 
 .position-title {
   color: var(--accent-color);
-  margin: 0.5rem 0 1rem 0;
+  margin: 0 0 1rem 0;
   font-size: 1rem;
+  font-weight: 600;
 }
 
 .description {
   color: var(--text-secondary);
   margin-bottom: 1.25rem;
   line-height: 1.6;
+  font-size: 0.95rem;
 }
 
 .achievements {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
 }
 
 .achievements li {
-  color: var(--text-muted);
-  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
   padding-left: 1.5rem;
   position: relative;
+  line-height: 1.5;
 }
 
 .achievements li::before {
@@ -84,6 +118,7 @@
   left: 0;
   color: var(--accent-color);
   font-weight: bold;
+  font-size: 0.85rem;
 }
 
 /* Responsive */
@@ -98,6 +133,18 @@
   }
 
   .period {
+    align-self: flex-start;
+  }
+
+  .company-name {
+    font-size: 1.1rem;
+  }
+
+  .position-title {
+    font-size: 0.95rem;
+  }
+}
+
     margin-left: 0;
   }
 }

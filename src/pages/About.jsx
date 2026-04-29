@@ -77,6 +77,11 @@ function About() {
       period: '2012 — 2014'
     },
     {
+      company: 'Marcha Xalapa de Enríquez / Boca del Río',
+      role: 'Diseñador Editorial',
+      period: '2012 — 2014'
+    },
+    {
       company: 'OyeVeracruz',
       role: 'Diseñador Editorial',
       period: '2011 — 2012'
