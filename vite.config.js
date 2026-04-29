@@ -8,8 +8,9 @@ export default defineConfig({
     open: true,
   },
   build: {
+    emptyOutDir: true,
     outDir: 'dist',
     sourcemap: false,
   },
-  base: process.env.NODE_ENV === 'production' ? '/JacoboRoyDesarrolladorMexicano/' : '/',
+  base: '/JacoboRoyDesarrolladorMexicano/',
 });
