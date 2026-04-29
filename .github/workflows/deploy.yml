@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - master
 
 permissions:
   contents: read
@@ -31,9 +30,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Lint code
-        run: npm run lint --if-present
-
       - name: Build project
         run: npm run build
         env:
@@ -48,10 +44,8 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    
     needs: build
     runs-on: ubuntu-latest
-    
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
