@@ -8,20 +8,20 @@
 }
 
 /* ===============================
-   HEADER SECTION - Magic Portfolio
+   HEADER SECTION
    =============================== */
 
 .about-header {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 5rem 2rem;
+  padding: 5rem 2rem 3rem;
   border-bottom: 1px solid var(--border-color);
 }
 
 .header-content {
   display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 4rem;
+  grid-template-columns: auto 1fr;
+  gap: 3rem;
   align-items: start;
 }
 
@@ -33,8 +33,8 @@
 
 .header-profile img,
 .header-profile .profile-photo {
-  width: 180px;
-  height: 180px;
+  width: 160px;
+  height: 160px;
   border-radius: 12px;
   object-fit: cover;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
@@ -48,23 +48,22 @@
 }
 
 .header-info h1 {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
   color: var(--text-primary);
   margin-bottom: 0.5rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: -0.5px;
 }
 
 .title-desc {
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: var(--text-secondary);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   font-weight: 500;
-  letter-spacing: 0.5px;
 }
 
 .header-intro {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: var(--text-secondary);
   line-height: 1.8;
   margin-bottom: 1.5rem;
@@ -74,9 +73,37 @@
 .header-meta {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
   font-size: 0.95rem;
   color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.header-socials {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  transition: all var(--transition);
+  text-decoration: none;
+}
+
+.social-link:hover {
+  background: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
 }
 
 .header-meta .separator {

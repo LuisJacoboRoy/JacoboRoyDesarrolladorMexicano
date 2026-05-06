@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Index from './pages/Index';
 import About from './pages/About';
+import Gallery from './pages/Gallery';
 import './styles/app.css';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
+          <Route path="/gallery" element={<Gallery />} />
         </Routes>
       </main>
       <footer className="footer">

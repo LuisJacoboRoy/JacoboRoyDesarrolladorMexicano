@@ -1,0 +1,70 @@
+/* ===============================
+   GALLERY PAGE
+   =============================== */
+
+.gallery-page {
+  width: 100%;
+  background: var(--bg-primary);
+  min-height: 80vh;
+}
+
+.gallery-header {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 2rem 3rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.gallery-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.gallery-intro {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.gallery-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.gallery-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  border: 2px dashed var(--border-color);
+  border-radius: 12px;
+  background: rgba(59, 130, 246, 0.03);
+  text-align: center;
+}
+
+.placeholder-content h2 {
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.placeholder-content p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .gallery-content h1 {
+    font-size: 2rem;
+  }
+
+  .gallery-placeholder {
+    min-height: 300px;
+  }
+}

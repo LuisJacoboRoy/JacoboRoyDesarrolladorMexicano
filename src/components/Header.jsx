@@ -1,16 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/header.css';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  useEffect(() => {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setIsDarkMode(prefersDark);
+    if (prefersDark) {
+      document.documentElement.setAttribute('data-theme', 'dark');
     }
-    setIsMenuOpen(false);
+  }, []);
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+    if (isDarkMode) {
+      document.documentElement.removeAttribute('data-theme');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
   };
 
   return (
@@ -31,27 +41,23 @@ function Header() {
         </button>
 
         <div className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
-          <Link to="/" className="nav-link">
+          <Link to="/" className="nav-link" onClick={() => setIsMenuOpen(false)}>
             Home
           </Link>
-          <Link to="/about" className="nav-link">
+          <Link to="/about" className="nav-link" onClick={() => setIsMenuOpen(false)}>
             About
           </Link>
+          <Link to="/gallery" className="nav-link" onClick={() => setIsMenuOpen(false)}>
+            Gallery
+          </Link>
           <button 
-            onClick={() => scrollToSection('experience')} 
-            className="nav-link nav-button"
+            onClick={toggleTheme}
+            className="nav-link theme-toggle"
+            aria-label="Toggle theme"
+            title={isDarkMode ? 'Light mode' : 'Dark mode'}
           >
-            Experience
+            {isDarkMode ? '☀️' : '🌙'}
           </button>
-          <button 
-            onClick={() => scrollToSection('projects')} 
-            className="nav-link nav-button"
-          >
-            Projects
-          </button>
-          <a href="mailto:killerpollo22@msn.com" className="nav-link cta">
-            Get in Touch
-          </a>
         </div>
       </nav>
     </header>
